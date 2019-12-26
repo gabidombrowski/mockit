@@ -18,7 +18,7 @@ The below file-tree shows modifiable and core files.
 src
 ├── css
 │   └── theme
-|			└── custom.css // Applied by default
+|    └── custom.css // Applied by default
 ├── images
 └── index.html
 ```
