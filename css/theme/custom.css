@@ -1,0 +1,146 @@
+/**
+ * Custom theme for reveal.js
+ *
+ */
+@import url(
+  https://fonts.googleapis.com/css?family=Poppins:300,
+  500,
+  300italic,
+  700italic
+);
+@import url(https://fonts.googleapis.com/css?family=Righteous&display=swap);
+/*********************************************
+* GLOBAL STYLES
+*********************************************/
+body {
+  background: linear-gradient(
+    25deg,
+    rgba(2, 0, 36, 0.3) 0%,
+    rgba(93, 9, 121, 0.3) 50%,
+    rgba(0, 255, 231, 0.2) 100%
+  );
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
+  line-height: 1.25em;
+  color: black;
+}
+
+a {
+  color: #009981;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.slides section {
+  top: 0.2em !important;
+}
+
+.first {
+  font-size: 8rem;
+  line-height: 1.5em;
+  margin-top: 10%;
+}
+.first .title-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.topic {
+  font-size: 6rem;
+}
+
+.img.karate-kid .slide-background-content {
+  background-image: linear-gradient(
+      25deg,
+      rgba(2, 0, 36, 0.3) 0%,
+      rgba(93, 9, 121, 0.3) 50%,
+      rgba(0, 255, 231, 0.2) 100%
+    ),
+    url(../../../images/karate-kid.jpg);
+  background-position: center top;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.title {
+  background: #ffd0ae;
+  font-family: "Righteous", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1em;
+  transform: rotate(-4deg) skew(-5deg);
+  padding: 0 0.75rem;
+}
+
+.subtitle {
+  background: #ffd0ae;
+  font-size: 4.5rem;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 56px;
+  transform: rotate(0deg) skew(0deg);
+  padding: 0 0.5rem;
+}
+
+.content {
+  padding-top: 4.5rem;
+  font-size: 3.5rem;
+}
+.content p {
+  padding: 2rem 0;
+}
+
+.content.single {
+  margin-top: 3rem;
+}
+
+.links {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  text-align: left;
+  line-height: 0.5em;
+}
+.links a {
+  padding: 1rem 4rem;
+}
+
+.category {
+  background: #009981;
+  display: inline-block;
+  padding: 0 1rem;
+  color: white;
+  font-family: "Righteous", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1em;
+  font-size: 4rem;
+  margin-top: 3rem;
+}
+
+.category.pause {
+  margin-top: 20%;
+}
+
+body:after {
+  content: url(../../../images/gabi_dombrowski_urlQR.png);
+  position: fixed;
+  bottom: 0.25em;
+  right: 1em;
+  z-index: 100;
+}
+
+body:before {
+  content: "@gabdom | License: CC BY-SA 4.0";
+  position: fixed;
+  font-size: 0.4em;
+  bottom: 1em;
+  left: 1em;
+  z-index: 100;
+}

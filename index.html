@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Title</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/custom.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Opening title section -->
+        <section class="first">
+          <div class="title-wrapper center"><p class="title">Title</p></div>
+          <aside class="notes">
+            <p>These are speaker notes</p>
+          </aside>
+        </section>
+        <!-- Cover image title section -->
+        <section class="topic img karate-kid">
+          <div class="title-wrapper"><p class="title">Section Title</p></div>
+        </section>
+        <!-- Section w/ fade in and none out -->
+        <section>
+          <div class="title-wrapper" data-transition="fade none">
+            <p class="title subtitle">Subtitle</p>
+          </div>
+          <div class="content">
+            <p class="fragment">Content fragment</p>
+          </div>
+        </section>
+        <!-- Section w/ none in and none out -->
+        <section>
+          <div class="title-wrapper" data-transition="none none">
+            <p class="title subtitle">Subtitle</p>
+          </div>
+          <!-- Content w/ single -->
+          <div class="content single">
+            <p>Content</p>
+          </div>
+        </section>
+        <!-- Section w/ none in and fade out -->
+        <section>
+          <div class="title-wrapper" data-transition="none fade">
+            <p class="title subtitle">Section</p>
+          </div>
+          <div class="content single">
+            <p>Content</p>
+          </div>
+        </section>
+        <!-- Section w/ data-background -->
+        <section
+          data-background="images/stages_of_competence.png"
+          data-background-position="center"
+          data-background-size="1000px"
+        >
+          <div class="title-wrapper">
+            <p class="title subtitle">Subtitle</p>
+          </div>
+        </section>
+        <!-- Closing title section -->
+        <section class="first">
+          <div class="title-wrapper center"><p class="title">Title</p></div>
+        </section>
+        <!-- References section -->
+        <section class="topic">
+          <div class="title-wrapper"><p class="title">References</p></div>
+          <div class="links">
+            <a target="_blank" href="https://gabidombrowski.com"
+              >Gabi Dombrowski
+              <span style="font-style: italic">(Gabi Dombrowski, 2019)</span></a
+            >
+          </div>
+        </section>
+        <!-- Resources section -->
+        <section class="topic">
+          <div class="title-wrapper"><p class="title">Resources</p></div>
+          <div class="links">
+            <a target="_blank" href="https://gabidombrowski.com"
+              >Gabi Dombrowski
+              <span style="font-style: italic">(Gabi Dombrowski, 2019)</span></a
+            >
+          </div>
+        </section>
+        <!-- <section class="topic">
+					<div class="title-wrapper"><p class="title">Sponsors</p></div>
+				</section> -->
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: false,
+        width: "100%",
+        height: "100%",
+        minScale: 1,
+        maxScale: 1,
+        hash: true,
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ],
+        transition: "fade"
+      });
+    </script>
+  </body>
+</html>
