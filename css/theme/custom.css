@@ -68,6 +68,15 @@ a {
   justify-content: flex-start;
 }
 
+.title-wrapper.center {
+  justify-content: center;
+  margin-top: 25%;
+}
+
+.title-wrapper.center .subtitle {
+  text-align: center;
+}
+
 .title {
   background: #ffd0ae;
   font-family: "Righteous", sans-serif;
@@ -90,10 +99,14 @@ a {
 
 .content {
   padding-top: 4.5rem;
-  font-size: 3.5rem;
+  font-size: 4rem;
 }
 .content p {
   padding: 2rem 0;
+}
+
+.content a {
+  font-size: 3.2rem;
 }
 
 .content.single {
@@ -144,3 +157,26 @@ body:before {
   left: 1em;
   z-index: 100;
 }
+
+.logos {
+  display: inline-flex;
+  width: 84%;
+  justify-content: space-around;
+}
+
+.logo img {
+  height: 250px;
+}
+
+.reveal .slides section .fragment.fade-down a {
+  opacity: 1;
+  visibility: visible;
+}
+.reveal .slides section .fragment.fade-down.visible,
+.reveal .slides section .fragment.visible:not(.current-fragment) a {
+  color: #a8a8a8;
+}
+/* .reveal .slides section .fragment.fade-down,
+.reveal .slides section .fragment.current-fragment a {
+  color: #1b91ff;
+} */
