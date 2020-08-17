@@ -150,7 +150,7 @@ body:after {
 }
 
 body:before {
-  content: "@gabdom | License: CC BY-SA 4.0";
+  content: "@gabzilladev | License: CC BY-SA 4.0";
   position: fixed;
   font-size: 0.4em;
   bottom: 1em;
