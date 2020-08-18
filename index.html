@@ -1,598 +1,513 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
 
-    <title>Title</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/reveal.css" />
-    <link rel="stylesheet" href="css/theme/custom.css" />
+  <title>Title</title>
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/monokai.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/reveal.css" />
+  <link rel="stylesheet" href="css/theme/custom.css" />
 
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-      link.href = window.location.search.match(/print-pdf/gi)
-        ? "css/print/pdf.css"
-        : "css/print/paper.css";
-      document.getElementsByTagName("head")[0].appendChild(link);
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section class="first">
-          <div class="title-wrapper">
-            <p class="title">Mock It 'til You Make It</p>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css" />
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = window.location.search.match(/print-pdf/gi)
+      ? "css/print/pdf.css"
+      : "css/print/paper.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="first">
+        <div class="title-wrapper">
+          <p class="title">Mock It 'til You Make It</p>
+        </div>
+      </section>
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">Tech</p>
+        </div>
+        <div class="logos content single">
+          <div class="fragment logo">
+            <a href="https://graphql.org/"><img src="images/graphql-logo.svg" title="GraphQL" alt="GraphQL Logo" /></a>
           </div>
-        </section>
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">Tech</p>
+          <div class="fragment logo">
+            <a href="https://www.apollographql.com/"><img src="images/apollo-logo.png" title="Apollo"
+                alt="Apollo Logo" /></a>
           </div>
-          <div class="logos content single">
-            <div class="fragment logo">
-              <a href="https://graphql.org/"
-                ><img
-                  src="images/graphql-logo.svg"
-                  title="GraphQL"
-                  alt="GraphQL Logo"
-              /></a>
-            </div>
-            <div class="fragment logo">
-              <a href="https://www.apollographql.com/"
-                ><img
-                  src="images/apollo-logo.png"
-                  title="Apollo"
-                  alt="Apollo Logo"
-              /></a>
-            </div>
-            <div class="fragment logo">
-              <a href="https://storybook.js.org/"
-                ><img
-                  src="images/storybook-logo.png"
-                  title="Storybook"
-                  alt="Storybook Logo"
-              /></a>
-            </div>
-            <aside class="notes">
-              <p>GraphQL: Query language for your API</p>
-              <p>Apollo: Great features to implement GraphQL</p>
-              <p>
-                Storybook: Organized visual renderings of your components,
-                useful for QA and development
-              </p>
-              <p>
-                We'll be using React for our frontend framework, but could also
-                use Vue, Angular, any number of things
-              </p>
-            </aside>
-          </div>
-        </section>
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">Demo App</p>
-          </div>
-          <div class="content">
-            <p class="fragment">
-              <a href="https://github.com/gabidombrowski/allthericks"
-                >All the Ricks</a
-              >
-            </p>
-            <p class="fragment">
-              <a href="https://rickandmortyapi.com/">The Rick and Morty API</a>
-            </p>
+          <div class="fragment logo">
+            <a href="https://storybook.js.org/"><img src="images/storybook-logo.png" title="Storybook"
+                alt="Storybook Logo" /></a>
           </div>
           <aside class="notes">
+            <p>GraphQL: Query language for your API</p>
+            <p>Apollo: Great features to implement GraphQL</p>
             <p>
-              I'm querying for the first page of results which has "rick" in it,
-              but "First Page of Ricks" isn't as catchy
+              Storybook: Organized visual renderings of your components,
+              useful for QA and development
             </p>
             <p>
-              Let's take a quick look at the app and the code
-            </p>
-            <p>
-              Show :3000, then App.tsx, cards, episodes
-            </p>
-            <p>
-              Any questions so far?
+              We'll be using React for our frontend framework, but could also
+              use Vue, Angular, any number of things
             </p>
           </aside>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">Storybook Stories</p>
-          </div>
-          <aside class="notes">
-            <p>
-              0 - Without Client: Could not find "client" in the context or
-              passed in as an option, pass an ApolloClient instance in via
-              options
-            </p>
-            <p>
-              Using storiesOf Storybook API. In the latest version of Storybook
-              (v5.2) there is a newer way to do this using Component Story
-              Format
-              (https://storybook.js.org/docs/formats/component-story-format/)
-              which Storybook has stated is simpler and more portable.
-            </p>
-            <p>
-              1 - With Client: Now shows the results of the API query, some
-              styling is missing because it exists on the higher level App
-            </p>
-            <p>
-              Apollo Client is included in Apollo Boost - it's a starter kit
-              that configures your client for you with recommended settings.
-              This can also be done manually.
-            </p>
-            <p>
-              ApolloProvider is similar to React's Context.Provider. It wraps
-              your React app and places the client on the context, which allows
-              you to access it from anywhere in your component tree. So we
-              should place it on a higher level component.
-            </p>
-          </aside>
-        </section>
-        <!-- #1 -->
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p class="fragment fade-down">
-              <a href="https://storybook.js.org/docs/formats/storiesof-api/"
-                >storiesOf Storybook API</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#apollo-boost"
-                >ApolloClient (apollo-boost)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#connect-your-client-to-react"
-                >ApolloProvider (@apollo/react-hooks)</a
-              >
-            </p>
-          </div>
-        </section>
-        <section data-transition="none">
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p>
-              <a href="https://storybook.js.org/docs/formats/storiesof-api/"
-                >storiesOf Storybook API</a
-              >
-            </p>
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#apollo-boost"
-                >ApolloClient (apollo-boost)</a
-              >
-            </p>
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#connect-your-client-to-react"
-                >ApolloProvider (@apollo/react-hooks)</a
-              >
-            </p>
-          </div>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">Stories with Mocking</p>
-          </div>
-          <aside class="notes">
-            <p>
-              Hitting the API with a query for each story is expensive; also, if
-              API is down, you can't run your stories at all
-            </p>
-            <p>
-              Use MockedProvider - allows stories to be run in isolation and
-              provides consistent results on every run by removing the
-              dependence on remote data
-            </p>
-            <p>gql function parses your query string into a query document</p>
-            <p>Show query</p>
-            <p>Show request and results mocking</p>
-            <p>Add another character</p>
-            <p>
-              Causes an error if you add (status) to query - could work around
-              that by exporting and importing your queries, but that would still
-              require you to update your results mocking
-            </p>
-            <p>Same thing happens if you were to remove (type) from query</p>
-          </aside>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">Stories with Auto Mocking</p>
-          </div>
-          <aside class="notes">
-            <p>
-              This is where we'll build our own custom client w/ custom options
-            </p>
-            <p>
-              First, export your schema: `apollo schema:download
-              --endpoint=https://rickandmortyapi.com/graphql/ schema.json` or
-              `npm run schema:download`
-            </p>
-            <p>Use AutoMockedProvider</p>
-            <p>The apollo client we created allows for Server Side Rendering</p>
-            <p>
-              By default, we get two items when mocking results of an array type
-            </p>
-            <p>
-              Right away, you might notice that the image is broken because
-              http://localhost:6006/Hello%20World (using string type) is not a
-              valid image address
-            </p>
-            <p>
-              Also, the number for total can be a negative integer, unless
-              you're strictly enforcing with a third party library a positive
-              value only (graphql doesn't do this out of the box)
-            </p>
-            <p>
-              And if you're running tests on dynamically generated data, you
-              would get mismatches on things like numbers
-            </p>
-          </aside>
-        </section>
-        <!-- #2 -->
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/api/react-testing/#mockedprovider"
-                >MockedProvider (@apollo/react-testing)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#apollo-boost"
-                >gql (apollo-boost)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a href="https://www.apollographql.com/docs/devtools/cli/"
-                >Apollo cli</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a href="https://graphql.org/graphql-js/utilities/"
-                >printSchema & buildClientSchema (graphql)</a
-              >
-            </p>
-          </div>
-        </section>
-        <section data-transition="none">
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/api/react-testing/#mockedprovider"
-                >MockedProvider (@apollo/react-testing)</a
-              >
-            </p>
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/get-started/#apollo-boost"
-                >gql (apollo-boost)</a
-              >
-            </p>
-            <p>
-              <a href="https://www.apollographql.com/docs/devtools/cli/"
-                >Apollo cli</a
-              >
-            </p>
-            <p>
-              <a href="https://graphql.org/graphql-js/utilities/"
-                >printSchema & buildClientSchema (graphql)</a
-              >
-            </p>
-          </div>
-        </section>
-        <!-- #3 -->
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/graphql-tools/mocking/"
-                >makeExecutableSchema & addMockFunctionsToSchema
-                (graphql-tools)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/api/apollo-client/"
-                >ApolloClient (apollo-client)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/react/caching/cache-configuration/"
-                >InMemoryCache (apollo-cache-inmemory)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a href="https://www.apollographql.com/docs/link/links/schema/"
-                >SchemaLink (apollo-link-schema)</a
-              >
-            </p>
-          </div>
-        </section>
-        <section data-transition="none">
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/graphql-tools/mocking/"
-                >makeExecutableSchema & addMockFunctionsToSchema
-                (graphql-tools)</a
-              >
-            </p>
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/api/apollo-client/"
-                >ApolloClient (apollo-client)</a
-              >
-            </p>
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/react/caching/cache-configuration/"
-                >InMemoryCache (apollo-cache-inmemory)</a
-              >
-            </p>
-            <p>
-              <a href="https://www.apollographql.com/docs/link/links/schema/"
-                >SchemaLink (apollo-link-schema)</a
-              >
-            </p>
-          </div>
-          <aside class="notes">Build AutoMockedProvider</aside>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">
-              Auto Mocking with Local Resolvers
-            </p>
-          </div>
-          <aside class="notes">
-            <p>
-              The optional mockResolvers param in the Auto Mocked provider let's
-              you explicitly add mocks to a story
-            </p>
-            <p>
-              With MockList you can specify your list length or a range of
-              length
-            </p>
-            <p>
-              You could also use a library like faker
-              (https://github.com/marak/Faker.js/) to seed mocks: ```image:
-              image.imageUrl(310, 310, "cats"), name: name.findName(),```
-            </p>
-            <p>
-              faker allows you to seed your data so you get consistent results
-            </p>
-          </aside>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">
-              Auto Mocking with Merged Resolvers
-            </p>
-          </div>
-          <aside class="notes">
-            <p>
-              You can take it a step further by merging global and local
-              resolvers for mocks
-            </p>
-            <p>
-              Use AutoMockedProviderMerged
-            </p>
-            <p>
-              Adding a local query resolver overwrites the global resolver
-            </p>
-          </aside>
-        </section>
-        <!-- #4 -->
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p class="fragment fade-down">
-              <a
-                href="https://www.apollographql.com/docs/graphql-tools/mocking/"
-                >MockList (graphql-tools)</a
-              >
-            </p>
-            <p class="fragment fade-down">
-              <a href="https://github.com/Marak/faker.js">faker.js</a>
-            </p>
-            <p class="fragment fade-down">
-              <a
-                href="https://github.com/gabidombrowski/allthericks/blob/master/src/utils/mergeResolvers.tsx"
-                >mergeResolvers function</a
-              >
-            </p>
-          </div>
-        </section>
-        <section data-transition="none">
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/graphql-tools/mocking/"
-                >MockList (graphql-tools)</a
-              >
-            </p>
-            <p>
-              <a href="https://github.com/Marak/faker.js">faker.js</a>
-            </p>
-            <p>
-              <a
-                href="https://github.com/gabidombrowski/allthericks/blob/master/src/utils/mergeResolvers.tsx"
-                >mergeResolvers function</a
-              >
-            </p>
-          </div>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">
-              Stories with Auto Mocked States
-            </p>
-          </div>
-          <aside class="notes">
-            <p>
-              Loading, error, no data states and mocked providers
-            </p>
-            <p>
-              ApolloLink & Observables allow us to describe what we want to
-              happen with our query results
-            </p>
-            <p>
-              Useful for things like retrying, polling, batching, subscriptions,
-              etc.
-            </p>
-            <p>
-              For NoDataMockedProvider, pay attention to your data structures
-            </p>
-          </aside>
-        </section>
-        <!-- #4 -->
-        <section>
-          <div class="title-wrapper">
-            <p class="title subtitle">So far...</p>
-          </div>
-          <div class="content items">
-            <p>
-              <a
-                href="https://www.apollographql.com/docs/graphql-tools/mocking/"
-                >Observable & ApolloLink (apollo-link)</a
-              >
-            </p>
-          </div>
-          <aside class="notes">
-            Build LoadingMockedProvider, ErrorMockedProvider,
-            NoDataMockedProvider
-          </aside>
-        </section>
-        <section>
-          <div class="title-wrapper center">
-            <p class="title subtitle">
-              Mocking with Local State
-            </p>
-          </div>
-          <aside class="notes">
-            <p>
-              As of v2.5, Apollo introduced
-              <a
-                href="https://www.apollographql.com/docs/react/data/local-state/"
-                >local state management</a
-              >
-            </p>
-            <p>
-              Allows the Apollo cache to be the single source of truth for your
-              data so you don't have to manage a separate Redux store, for
-              example
-            </p>
-            <p>Use LocalStateProvider</p>
-            <p>
-              Uses @client directive (requires resolvers option to be set on
-              apollo client)
-            </p>
-            <p>
-              You could link a schema, but can also fake the data if you don't
-              have a schema
-            </p>
-          </aside>
-        </section>
-        <!-- Closing title section -->
-        <section class="first">
-          <div class="title-wrapper">
-            <p class="title">Mock It 'til You Make It</p>
-          </div>
-        </section>
-        <!-- References section -->
-        <section class="topic">
-          <div class="title-wrapper"><p class="title">References</p></div>
-          <div class="links">
-            <a
-              target="_blank"
-              href="https://www.youtube.com/watch?v=oy_qsKHJKOg&feature=youtu.be"
-              >Chang Wang – Mocking and automocking for tests and storybooks
-              <span style="font-style: italic">(OKG!, 2019)</span></a
-            >
-            <a
-              href="https://www.freecodecamp.org/news/a-new-approach-to-mocking-graphql-data-1ef49de3d491/"
-              >A new approach to mocking GraphQL data
-              <span>(Sashko Stubailo, 2018)</span></a
-            >
-            <a
-              href="https://www.telerik.com/blogs/mocking-and-testing-graphql-in-react"
-              >Mocking and Testing GraphQL in React
-              <span>(Leigh Halliday, 2019)</span></a
-            >
-            <a href="https://www.youtube.com/watch?v=FKA5iNYpd_8"
-              >Testing GraphQL with Auto Mocked Provider
-              <span>(Leigh Halliday, 2019)</span></a
-            >
-          </div>
-        </section>
-        <!-- <section class="topic">
+        </div>
+      </section>
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">Demo App</p>
+        </div>
+        <div class="content">
+          <p class="fragment">
+            <a href="https://github.com/gabidombrowski/allthericks">All the Ricks</a>
+          </p>
+          <p class="fragment">
+            <a href="https://rickandmortyapi.com/">The Rick and Morty API</a>
+          </p>
+        </div>
+        <aside class="notes">
+          <p>
+            I'm querying for the first page of results which has "rick" in it,
+            but "First Page of Ricks" isn't as catchy
+          </p>
+          <p>
+            Let's take a quick look at the app and the code
+          </p>
+          <p>
+            Show :3000, then App.tsx, cards, episodes
+          </p>
+          <p>
+            Any questions so far?
+          </p>
+        </aside>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">Storybook Stories</p>
+        </div>
+        <aside class="notes">
+          <p>
+            0 - Without Client: Could not find "client" in the context or
+            passed in as an option, pass an ApolloClient instance in via
+            options
+          </p>
+          <p>
+            Using storiesOf Storybook API. In the latest version of Storybook
+            (v5.2) there is a newer way to do this using Component Story
+            Format
+            (https://storybook.js.org/docs/formats/component-story-format/)
+            which Storybook has stated is simpler and more portable.
+          </p>
+          <p>
+            1 - With Client: Now shows the results of the API query, some
+            styling is missing because it exists on the higher level App
+          </p>
+          <p>
+            Apollo Client is included in Apollo Boost - it's a starter kit
+            that configures your client for you with recommended settings.
+            This can also be done manually.
+          </p>
+          <p>
+            ApolloProvider is similar to React's Context.Provider. It wraps
+            your React app and places the client on the context, which allows
+            you to access it from anywhere in your component tree. So we
+            should place it on a higher level component.
+          </p>
+        </aside>
+      </section>
+      <!-- #1 -->
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p class="fragment fade-down">
+            <a href="https://storybook.js.org/docs/formats/storiesof-api/">storiesOf Storybook API</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/get-started/#apollo-boost">ApolloClient (apollo-boost)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/get-started/#connect-your-client-to-react">ApolloProvider
+              (@apollo/react-hooks)</a>
+          </p>
+        </div>
+      </section>
+      <section data-transition="none">
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p>
+            <a href="https://storybook.js.org/docs/formats/storiesof-api/">storiesOf Storybook API</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/react/get-started/#apollo-boost">ApolloClient (apollo-boost)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/react/get-started/#connect-your-client-to-react">ApolloProvider
+              (@apollo/react-hooks)</a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">Stories with Mocking</p>
+        </div>
+        <aside class="notes">
+          <p>
+            Hitting the API with a query for each story is expensive; also, if
+            API is down, you can't run your stories at all
+          </p>
+          <p>
+            Use MockedProvider - allows stories to be run in isolation and
+            provides consistent results on every run by removing the
+            dependence on remote data
+          </p>
+          <p>gql function parses your query string into a query document</p>
+          <p>Show query</p>
+          <p>Show request and results mocking</p>
+          <p>Add another character</p>
+          <p>
+            Causes an error if you add (status) to query - could work around
+            that by exporting and importing your queries, but that would still
+            require you to update your results mocking
+          </p>
+          <p>Same thing happens if you were to remove (type) from query</p>
+        </aside>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">Stories with Auto Mocking</p>
+        </div>
+        <aside class="notes">
+          <p>
+            This is where we'll build our own custom client w/ custom options
+          </p>
+          <p>
+            First, export your schema: `apollo schema:download
+            --endpoint=https://rickandmortyapi.com/graphql/ schema.json` or
+            `npm run schema:download`
+          </p>
+          <p>Use AutoMockedProvider</p>
+          <p>The apollo client we created allows for Server Side Rendering</p>
+          <p>
+            By default, we get two items when mocking results of an array type
+          </p>
+          <p>
+            Right away, you might notice that the image is broken because
+            http://localhost:6006/Hello%20World (using string type) is not a
+            valid image address
+          </p>
+          <p>
+            Also, the number for total can be a negative integer, unless
+            you're strictly enforcing with a third party library a positive
+            value only (graphql doesn't do this out of the box)
+          </p>
+          <p>
+            And if you're running tests on dynamically generated data, you
+            would get mismatches on things like numbers
+          </p>
+        </aside>
+      </section>
+      <!-- #2 -->
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/api/react-testing/#mockedprovider">MockedProvider
+              (@apollo/react-testing)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/get-started/#apollo-boost">gql (apollo-boost)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/devtools/cli/">Apollo cli</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://graphql.org/graphql-js/utilities/">printSchema & buildClientSchema (graphql)</a>
+          </p>
+        </div>
+      </section>
+      <section data-transition="none">
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p>
+            <a href="https://www.apollographql.com/docs/react/api/react-testing/#mockedprovider">MockedProvider
+              (@apollo/react-testing)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/react/get-started/#apollo-boost">gql (apollo-boost)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/devtools/cli/">Apollo cli</a>
+          </p>
+          <p>
+            <a href="https://graphql.org/graphql-js/utilities/">printSchema & buildClientSchema (graphql)</a>
+          </p>
+        </div>
+      </section>
+      <!-- #3 -->
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/graphql-tools/mocking/">makeExecutableSchema &
+              addMockFunctionsToSchema
+              (graphql-tools)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/api/apollo-client/">ApolloClient (apollo-client)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/react/caching/cache-configuration/">InMemoryCache
+              (apollo-cache-inmemory)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/link/links/schema/">SchemaLink (apollo-link-schema)</a>
+          </p>
+        </div>
+      </section>
+      <section data-transition="none">
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p>
+            <a href="https://www.apollographql.com/docs/graphql-tools/mocking/">makeExecutableSchema &
+              addMockFunctionsToSchema
+              (graphql-tools)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/react/api/apollo-client/">ApolloClient (apollo-client)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/react/caching/cache-configuration/">InMemoryCache
+              (apollo-cache-inmemory)</a>
+          </p>
+          <p>
+            <a href="https://www.apollographql.com/docs/link/links/schema/">SchemaLink (apollo-link-schema)</a>
+          </p>
+        </div>
+        <aside class="notes">Build AutoMockedProvider</aside>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">
+            Auto Mocking with Local Resolvers
+          </p>
+        </div>
+        <aside class="notes">
+          <p>
+            The optional mockResolvers param in the Auto Mocked provider let's
+            you explicitly add mocks to a story
+          </p>
+          <p>
+            With MockList you can specify your list length or a range of
+            length
+          </p>
+          <p>
+            You could also use a library like faker
+            (https://github.com/marak/Faker.js/) to seed mocks: ```image:
+            image.imageUrl(310, 310, "cats"), name: name.findName(),```
+          </p>
+          <p>
+            faker allows you to seed your data so you get consistent results
+          </p>
+        </aside>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">
+            Auto Mocking with Merged Resolvers
+          </p>
+        </div>
+        <aside class="notes">
+          <p>
+            You can take it a step further by merging global and local
+            resolvers for mocks
+          </p>
+          <p>
+            Use AutoMockedProviderMerged
+          </p>
+          <p>
+            Adding a local query resolver overwrites the global resolver
+          </p>
+        </aside>
+      </section>
+      <!-- #4 -->
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p class="fragment fade-down">
+            <a href="https://www.apollographql.com/docs/graphql-tools/mocking/">MockList (graphql-tools)</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://github.com/Marak/faker.js">faker.js</a>
+          </p>
+          <p class="fragment fade-down">
+            <a href="https://github.com/gabidombrowski/allthericks/blob/master/src/utils/mergeResolvers.tsx">mergeResolvers
+              function</a>
+          </p>
+        </div>
+      </section>
+      <section data-transition="none">
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p>
+            <a href="https://www.apollographql.com/docs/graphql-tools/mocking/">MockList (graphql-tools)</a>
+          </p>
+          <p>
+            <a href="https://github.com/Marak/faker.js">faker.js</a>
+          </p>
+          <p>
+            <a href="https://github.com/gabidombrowski/allthericks/blob/master/src/utils/mergeResolvers.tsx">mergeResolvers
+              function</a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">
+            Stories with Auto Mocked States
+          </p>
+        </div>
+        <aside class="notes">
+          <p>
+            Loading, error, no data states and mocked providers
+          </p>
+          <p>
+            ApolloLink & Observables allow us to describe what we want to
+            happen with our query results
+          </p>
+          <p>
+            Useful for things like retrying, polling, batching, subscriptions,
+            etc.
+          </p>
+          <p>
+            For NoDataMockedProvider, pay attention to your data structures
+          </p>
+        </aside>
+      </section>
+      <!-- #4 -->
+      <section>
+        <div class="title-wrapper">
+          <p class="title subtitle">So far...</p>
+        </div>
+        <div class="content items">
+          <p>
+            <a href="https://www.apollographql.com/docs/graphql-tools/mocking/">Observable & ApolloLink
+              (apollo-link)</a>
+          </p>
+        </div>
+        <aside class="notes">
+          Build LoadingMockedProvider, ErrorMockedProvider,
+          NoDataMockedProvider
+        </aside>
+      </section>
+      <section>
+        <div class="title-wrapper center">
+          <p class="title subtitle">
+            Mocking with Local State
+          </p>
+        </div>
+        <aside class="notes">
+          <p>
+            As of v2.5, Apollo introduced
+            <a href="https://www.apollographql.com/docs/react/data/local-state/">local state management</a>
+          </p>
+          <p>
+            Allows the Apollo cache to be the single source of truth for your
+            data so you don't have to manage a separate Redux store, for
+            example
+          </p>
+          <p>Use LocalStateProvider</p>
+          <p>
+            Uses @client directive (requires resolvers option to be set on
+            apollo client)
+          </p>
+          <p>
+            You could link a schema, but can also fake the data if you don't
+            have a schema
+          </p>
+        </aside>
+      </section>
+      <!-- Closing title section -->
+      <section class="first">
+        <div class="title-wrapper">
+          <p class="title">Mock It 'til You Make It</p>
+        </div>
+      </section>
+      <!-- References section -->
+      <section class="topic">
+        <div class="title-wrapper">
+          <p class="title">References</p>
+        </div>
+        <div class="links">
+          <a target="_blank" href="https://www.youtube.com/watch?v=oy_qsKHJKOg&feature=youtu.be">Chang Wang – Mocking
+            and automocking for tests and storybooks
+            <span style="font-style: italic">(OKG!, 2019)</span></a>
+          <a href="https://www.freecodecamp.org/news/a-new-approach-to-mocking-graphql-data-1ef49de3d491/">A new
+            approach to mocking GraphQL data
+            <span>(Sashko Stubailo, 2018)</span></a>
+          <a href="https://www.telerik.com/blogs/mocking-and-testing-graphql-in-react">Mocking and Testing GraphQL in
+            React
+            <span>(Leigh Halliday, 2019)</span></a>
+          <a href="https://www.youtube.com/watch?v=FKA5iNYpd_8">Testing GraphQL with Auto Mocked Provider
+            <span>(Leigh Halliday, 2019)</span></a>
+          <a href="https://moonhighway.com/mocking-apollo-server">GraphQL Mocking Techniques with Apollo Server
+            <span>(Moon Highway, 2019)</span></a>
+        </div>
+      </section>
+      <!-- <section class="topic">
 					<div class="title-wrapper"><p class="title">Sponsors</p></div>
 				</section> -->
-      </div>
     </div>
+  </div>
 
-    <script src="js/reveal.js"></script>
+  <script src="js/reveal.js"></script>
 
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
-      Reveal.initialize({
-        controls: false,
-        width: "100%",
-        height: "100%",
-        minScale: 1,
-        maxScale: 1,
-        hash: true,
-        dependencies: [
-          { src: "plugin/markdown/marked.js" },
-          { src: "plugin/markdown/markdown.js" },
-          { src: "plugin/notes/notes.js", async: true },
-          { src: "plugin/highlight/highlight.js", async: true }
-        ],
-        transition: "fade"
-      });
-    </script>
-  </body>
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: false,
+      width: "100%",
+      height: "100%",
+      minScale: 1,
+      maxScale: 1,
+      hash: true,
+      dependencies: [
+        { src: "plugin/markdown/marked.js" },
+        { src: "plugin/markdown/markdown.js" },
+        { src: "plugin/notes/notes.js", async: true },
+        { src: "plugin/highlight/highlight.js", async: true }
+      ],
+      transition: "fade"
+    });
+  </script>
+</body>
+
 </html>
