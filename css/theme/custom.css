@@ -180,3 +180,7 @@ body:before {
 .reveal .slides section .fragment.current-fragment a {
   color: #1b91ff;
 } */
+
+.cc-text {
+  font-size: 36px;
+}
